@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <%- partial("../../../_partials/_style") %>
+    <script type="text/javascript">
+        window.environments = JSON.parse('<%= JSON.stringify(be_environments) %>'.replace(/&#34;/g, '"'));
+        window.default_env = '<%- be_default_env %>';
+    </script>
+</head>
+<body class="site-navbar-small font-body-color">
+    <div class="body-container">
+        <%- partial("../../../_partials/_header-products") %>
+        <div id="divContent" class="wide-screen">
+            <div class="container-fluid content getting-started content-mark-down ptm">
+                <div class="row">
+                    <div class="col-md-8 col-sm-12">
+                        <ol class="breadcrumb pln site-font font-body-color">
+                            <li class="breadcrumb-home"><a href="/">Home</a></li>
+                            <li><a href="../../../"><%- booking_engine %></a></li>
+                            <li><a href="../../">Hotel</a></li>
+                            <% if( version === be_hotel_version) { %>
+                            <li><a href="../">Current</a></li>
+                            <% } else { %>
+                            <li><a href="../">v<%- version %></a></li>
+                            <% } %>
+                            <li class="active"><%- breadcrumb_page %></li>
+                        </ol>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <%- partial("./_version-partial") %>
+                    </div>
+                </div>
+                <div class="row ptm">
+                    <% if(actions.length) { %>
+                    <div class="col-md-3">
+                        <ul class="list-group visible-lg visible-md" style="margin-top: 10px;">
+                            <% for(var i = 0; i < actions.length; i++){ %>
+                            <% if( i == 0) { %>
+                            <li><a class="site-font light-border list-group-item active" href="<%= actions[i].url %>"><%= actions[i].label %></a></li>
+                            <% } else { %>
+                            <li><a class="site-font light-border list-group-item" href="<%= actions[i].url %>"><%= actions[i].label %></a></li>
+                            <% }; %>
+                            <% }; %>
+                        </ul>
+                    </div>
+                    <div class="col-md-9">
+                        <%- yield %>
+                    </div>
+                    <% } else { %>
+                    <div class="doc-nav">
+                        <!--Nav Bar -->
+                        <nav class="bs-docs-sidebar">
+                            <ul id="sidebar" class="nav nav-stacked bs-docs-sidenav"></ul>
+                            <a class="back-to-top" href="#divHeader">
+                                Go to top
+                            </a>
+                        </nav>
+                    </div>
+                    <div class="col-lg-12 col-xs-12" id="divDocContent">
+                        <%- yield %>
+                    </div>
+                    <% } %>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mtl ptl text-center">
+                        <div class="muted ptl"> For any query or suggestions, feel free to drop an email to <a href="mailto:<%- contact %>"><%- contact %></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- partial("../../../_partials/_footer") %>
+    </div>
+    <%- partial("../../../_partials/_scripts") %>
+    <%- partial("../../../_partials/_harness-scripts") %>
+    <script type="text/javascript">
+        var sidebar = $('.list-group');
+        sidebar.affix({
+            offset: {
+                top: function () {
+                    var c = sidebar.offset().top, d = -20, e = $("#divHeader").height();
+                    return this.top = c - e - d
+                }, bottom: function () {
+                    return this.bottom = $("#divFooter").outerHeight(!0) + 166;
+                }
+            }
+        });
+
+    </script>
+
+    <% if(environment == "prod") { %>
+
+    <% } else { %>
+    <script type="text/javascript" src="/js/side-nav-bar.js?v=__RevisionNoGoesHere__"></script>
+    <script type="text/javascript" src="/js/util.js?v=__RevisionNoGoesHere__"></script>
+    <% } %>
+</body>
+</html>

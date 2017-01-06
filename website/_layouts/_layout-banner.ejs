@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <%- partial("../_partials/_style") %>
+</head>
+<body class="site-navbar-small font-body-color">
+    <div class="body-container">
+        <%- partial("../_partials/_header-products") %>
+        <%- yield %>
+        <%- partial("../_partials/_footer") %>
+    </div><%- partial("../_partials/_scripts") %>
+</body>
+</html>

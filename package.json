@@ -1,0 +1,18 @@
+{
+	"name" : "oski.dev.center",
+	"version" : "0.0.1",
+	"private" : true,
+	"scripts" : {
+    "start": "harp server website --port 9000",
+    "prod": "set NODE_ENV=prod&harp server website --port 9000"
+	},
+	"dependencies" : {
+		"harp": "*",
+		"node-dir": "*",
+		"drafter": "*",
+		"nopt" : "^3.0.1",
+		"uritemplate" : "^0.3.4",
+		"crlf": "*",
+		"mkdirp": "*"
+	}
+}

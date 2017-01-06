@@ -1,0 +1,29 @@
+<title><%= title %> - <%= brand %></title>
+<meta charset="UTF-8" />
+<meta name="google" content="notranslate" />
+<meta name="description" content="<%= description %>" />
+<meta name="keywords" content="<%= keywords %>" />
+<meta http-equiv="Content-Language" content="en" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Roboto:300,400,500' />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yrsa:300,400,500" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+<% if(environment == "prod") { %>
+<link href="/bundle/css/style.min.css?v=__RevisionNoGoesHere__" rel="stylesheet" />
+<% } else { %>
+<!--theme-->
+<link href="/css/bootstrap/css/bootstrap.min.css?v=__RevisionNoGoesHere__" rel="stylesheet" />
+<link href="/css/bootstrap/css/bootstrap-extend.min.css?v=__RevisionNoGoesHere__" rel="stylesheet" />
+<link rel="stylesheet" href="/css/site.min.css?v=__RevisionNoGoesHere__">
+
+<!--fonts-->
+<link rel="stylesheet" href="/css/fonts/web-icons/web-icons.min.css?v=__RevisionNoGoesHere__" />
+<link rel="stylesheet" href="/css/fonts/font-awesome/font-awesome.css?v=__RevisionNoGoesHere__" />
+
+<!--custom css-->
+<link href="/css/common.css?v=__RevisionNoGoesHere__" rel="stylesheet" />
+
+<!--plugins-->
+<link rel="stylesheet" href="/global/vendor/asscrollable/asScrollable.css?v=__RevisionNoGoesHere__" />
+<% } %>

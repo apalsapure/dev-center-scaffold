@@ -1,0 +1,12 @@
+{
+	"index": {
+		"title": "Cancel Booking - Car API - Booking Engine - Dev Center",
+		"description": "Resources which will help you to learn more about the Oski Platform.",
+		"layout": "../../../../_layouts/be/car/_layout.ejs",
+		"keywords": "service hooks, push console, resources, Oski",
+		"breadcrumb_page": "Cancel",
+		"actions": [],
+		"version": "1.0",
+		"path": "cancel"
+	}
+}

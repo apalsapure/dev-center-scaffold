@@ -1,0 +1,77 @@
+<style type="text/css">
+    .site-navbar { background-color: transparent !important; }
+    #divHeader { position: absolute; z-index: 1; width: 100%; }
+    .hero-content { position: absolute; top: 180px; text-align: center; width: 100%; }
+        .hero-content h1, .hero-content h2 { color: #fff; text-shadow: 1px 1px 1px #000; font-weight: normal; }
+        .hero-content h1 { font-size: 45px; }
+        .hero-content h2 { font-size: 22px; }
+</style>
+<div id="divContent">
+    <div class="cover">
+        <div class="cover-image position-relative" style="height: 580px;">
+            <div class="offerBanner" style="background-size: 100% 105% !important; height: 100%;
+                    background: url(&quot;/css/images/hero/home.png&quot;) no-repeat;">
+            </div>
+            <!--<div class="cover-image-credits">
+                Copyright: <a style="color: #fff;" target="_blank" href='http://www.123rf.com/profile_varijanta'>varijanta / 123RF</a>
+            </div>-->
+            <div class="hero-content">
+                <h1><%- brand.toUpperCase() %> PLATFORM</h1>
+                <h2>Unified Travel Cloud Platform</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid content">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Documentation</h3>
+                        <p>
+                            Integrating our platform APIs just got easier and faster! Our Platform API documentation contains conceptual overviews, detailed definitions of fields, and working code examples that you can try out.
+                            With the rich content in our documentation portal, you can find answers to the what, why, and how of our travel API world.
+                        </p>
+                        <p>
+                            Our Booking Engine API documentation is <a href="/<%- booking_engine_url %>">available here</a>. You can also look at our
+
+                            informative list of <a href="<%- support_link %>" target="_blank">frequently asked</a> questions for the Booking Engine APIs.
+                        </p>
+                        <p>
+                            Our Universal Supplier Gateway API documentation is <a href="/<%- universal_supplier_gateway_url %>">available here</a>. You can also
+
+                            look at our informative list of <a href="<%- support_link %>" target="_blank">frequently asked</a> questions for the Universal Gateway
+
+                            APIs.
+                        </p>
+                    </div>
+                </div>
+                <div class="row mtm">
+                    <div class="col-md-12">
+                        <h3>API Status</h3>
+                        <p>Our API Status page provides the most up-to-the-minute information on service availability. Check this page at any time to get current status information to be notified of interruptions to each individual service.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Getting Help</h3>
+                        <p>If you've read the documentation and you are still having trouble, please feel free to get in touch with us - we would love to help.</p>
+                    </div>
+                </div>
+                <div class="row mtl">
+                    <div class="col-md-12">
+                        <h3>File a Ticket</h3>
+                        <p>If you want to file a support request, feature request, or suggestion, our <a title="<%- brand %> Support" target="_blank" href="<%- support_link %>">support site</a> is for you. In addition to private support requests, we also have articles and FAQs that provide insight about our APIs.</p>
+                    </div>
+                </div>
+                <div class="row mtl">
+                    <div class="col-md-12">
+                        <h3>Email Us</h3>
+                        <p>You can also choose to send us an email at <a href="mailto:<%- support_email %>"><%- support_email %></a>. This will create a ticket at our support site and send an alert to our support executives who will assist you as soon as possible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

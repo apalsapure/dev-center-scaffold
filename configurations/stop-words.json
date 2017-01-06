@@ -1,0 +1,28 @@
+{
+  "stopWords": [
+    {
+      "pattern": "^# Group",
+      "for": "#"
+    },
+    {
+      "pattern": "^## Group",
+      "for": "##"
+    },
+    {
+      "pattern": "^### Group",
+      "for": "###"
+    },
+    {
+      "pattern": "^#### Group",
+      "for": "####"
+    },
+    {
+      "pattern": "^##### Group",
+      "for": "#####"
+    },
+    {
+      "pattern": "^##### Group",
+      "for": "#####"
+    }
+  ]
+}

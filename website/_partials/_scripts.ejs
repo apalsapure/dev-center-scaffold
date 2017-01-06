@@ -1,0 +1,38 @@
+<!--[if lt IE 9]>
+<div class="fixed outdated-message">
+    <div class="alert dark alert-danger alert-dismissible" role="alert">
+        <h1>YOUR BROWSER IS OUT-OF-DATE</h1>
+        <h3 class="pbm">UPDATE YOUR BROWSER TO VIEW THIS WEBSITE CORRECTLY.</h3>
+        <a class="btn btn-default btn-outline mbm mtm" href="http://outdatedbrowser.com/en" target="_blank">UPDATE MY BROWSER NOW</a>
+    </div>
+</div>
+<![endif]-->
+<% if(environment == "prod") { %>
+<script src="/bundle/js/infra-bundle.min.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<link href="/bundle/css/theme/white/theme.min.css?v=__RevisionNoGoesHere__" rel="stylesheet" title="white" />
+<link href="/bundle/css/theme/black/theme.min.css?v=__RevisionNoGoesHere__" rel="stylesheet" title="black" />
+<% } else { %>
+<script src="/js/infra/jquery.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/infra/md5.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/infra/bootstrap.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/infra/highlight.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/infra/js.cookie.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/store.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+
+<script src="/global/vendor/screenfull/screenfull.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/global/vendor/breakpoints/breakpoints.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/global/vendor/asbreadcrumbs/jquery-asBreadcrumbs.min.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/global/vendor/asscrollable/jquery.asScrollable.all.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+
+<script src="/global/js/core.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/site.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/menu.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/menubar.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+
+<script src="/global/js/components/asscrollable.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+
+<script src="/js/util.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+
+<link href="/css/theme/white/theme.min.css?v=__RevisionNoGoesHere__" rel="stylesheet" title="white" />
+<link href="/css/theme/black/theme.min.css?v=__RevisionNoGoesHere__" rel="stylesheet" title="black" />
+<% } %>

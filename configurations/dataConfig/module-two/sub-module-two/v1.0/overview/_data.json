@@ -1,0 +1,37 @@
+{
+  "index": {
+    "title": "Car - Booking Engine - Dev Center",
+    "description": "Resources which will help you to learn more about the Oski Platform.",
+    "layout": "../../../../_layouts/be/car/_layout.ejs",
+    "keywords": "service hooks, push console, resources, Oski",
+    "breadcrumb_page": "Overview",
+		"version": "1.0",
+		"path": "overview",
+    "actions": [
+      {
+        "label": "Overview",
+        "url": "../overview"
+      },
+      {
+        "label": "Search",
+        "url": "../search"
+      },
+      {
+        "label": "Pricing",
+        "url": "../pricing"
+      },
+      {
+        "label": "Book",
+        "url": "../book"
+      },
+      {
+        "label": "Cancel",
+        "url": "../cancel"
+      },
+      {
+        "label": "External Services",
+        "url": "../external-services"
+      }
+    ]
+  }
+}

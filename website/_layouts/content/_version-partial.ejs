@@ -1,0 +1,28 @@
+<% if(content_versions.length > 1 ) { %>
+<div class="version-switcher site-font">
+    <div class="row">
+        <div class="col-sm-12">
+            <span>Select Version: </span>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"> <span id="span-version">...</span> <span class="caret"></span> </a>
+            <ul class="dropdown-menu list-style-none list-man">
+                <li><a id="aCurrentVersion" href="../../current/<%= path %>">Current Version (<%- content_version %>)</a></li>
+                <li role="separator" class="divider"></li>
+                <% for (var index = 0; index < content_versions.length; index ++) { %>
+                <% if( content_version !== content_versions[index] ) { %>
+                <li><a href="../../v<%= content_versions[index] %>/<%= path %>">Version <%= content_versions[index] %></a></li>
+                <% } %>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var split = window.location.href.split('/'),
+        hotelIndex = split.indexOf('hotel');
+    if (hotelIndex + 1 < split.length) {
+        var version = split[hotelIndex + 1] === 'current' ? document.getElementById('aCurrentVersion').innerHTML : split[hotelIndex + 1];
+        document.getElementById('span-version').innerHTML = version.replace(/_/g, '.');
+    }
+</script>
+<% } %>

@@ -1,0 +1,431 @@
+<div id="divHeader">
+    <nav class="site-navbar navbar navbar-default navbar-mega navbar-inverse navbar-inverse"
+         role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle hamburger hamburger-close navbar-toggle-left hided"
+                    data-toggle="menubar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-collapse"
+                    data-toggle="collapse">
+                <i class="icon wb-more-horizontal" aria-hidden="true"></i>
+            </button>
+            <a class="navbar-brand navbar-brand-center" href="/">
+                <img class="navbar-brand-logo navbar-brand-logo-normal" src="<%- logo_uri %>"
+                     title="<%- brand %>">
+                <img class="navbar-brand-logo navbar-brand-logo-special" src="/css/images/logo-blue.png"
+                     title="<%- brand %>">
+                <span class="navbar-brand-text hidden-xs"> <%- brand %></span>
+            </a>
+            <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search"
+                    data-toggle="collapse">
+                <span class="sr-only">Toggle Search</span>
+                <i class="icon wb-search" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="navbar-container container-fluid padding-right-0">
+            <!-- Navbar Collapse -->
+            <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
+                <!-- Navbar Toolbar -->
+                <ul class="nav navbar-toolbar man">
+                    <li class="hidden-float" id="toggleMenubar">
+                        <a data-toggle="menubar" href="#" role="button">
+                            <i class="icon hamburger hamburger-arrow-left">
+                                <span class="sr-only">Toggle menubar</span>
+                                <span class="hamburger-bar"></span>
+                            </i>
+                        </a>
+                    </li>
+                    <li class="hidden-xs" id="toggleFullscreen">
+                        <a class="icon icon-fullscreen" data-toggle="fullscreen" href="javascript:void(0)" role="button">
+                            <span class="sr-only">Toggle fullscreen</span>
+                        </a>
+                    </li>
+                    <li class="hidden-float">
+                        <a class="icon wb-search" data-toggle="collapse" href="javascript:void(0)" data-target="#site-navbar-search"
+                           role="button">
+                            <span class="sr-only">Toggle Search</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- End Navbar Toolbar -->
+                <!-- Navbar Toolbar Right -->
+                <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+                    <li class="dropdown dropdown-fw dropdown-mega visible-lg visible-md visible-sm">
+                        <a class="dropdown-toggle font-17 font-weight-light" data-toggle="dropdown" href="#" aria-expanded="false"
+                           data-animation="fade" role="button">Products<i class="mls icon wb-chevron-down-mini" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation">
+                                <div class="mega-content">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h4 class="mtn"><%- booking_engine %><a href="/<%- booking_engine_url %>"><i class="mls icon font-size-14 fa-external-link"></i></a></h4>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <h5>Flight</h5>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <h5><i></i>Hotel</h5>
+                                                    <ul class="blocks">
+                                                        <li class="mega-menu margin-0">
+                                                            <ul class="list-icons">
+                                                                <li>
+                                                                    <i class="wb-chevron-right-mini visible-lg visible-md" aria-hidden="true"></i>
+                                                                    <a href="/<%- booking_engine_url %>/hotel/current">
+                                                                        Overview
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="wb-chevron-right-mini visible-lg visible-md" aria-hidden="true"></i>
+                                                                    <a href="/<%- booking_engine_url %>/hotel/current/search">
+                                                                        Search
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="wb-chevron-right-mini visible-lg visible-md" aria-hidden="true"></i>
+                                                                    <a href="/<%- booking_engine_url %>/hotel/current/room-list">
+                                                                        Room List
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="wb-chevron-right-mini visible-lg visible-md" aria-hidden="true"></i>
+                                                                    <a href="/<%- booking_engine_url %>/hotel/current/pricing">
+                                                                        Pricing
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="wb-chevron-right-mini visible-lg visible-md" aria-hidden="true"></i>
+                                                                    <a href="/<%- booking_engine_url %>/hotel/current/book">
+                                                                        Book
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="wb-chevron-right-mini visible-lg visible-md" aria-hidden="true"></i>
+                                                                    <a href="/<%- booking_engine_url %>/hotel/current/cancel">
+                                                                        Cancel
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <h5>Car</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h4 class="mtn"><%- universal_supplier_gateway %><a href="/<%- universal_supplier_gateway_url %>"><i class="mls icon font-size-14 fa-external-link"></i></a></h4>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <h5>Flight</h5>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <h5>Hotel</h5>
+                                                    <ul class="blocks">
+                                                        <li class="mega-menu margin-0">
+                                                            <ul class="list-icons">
+                                                                <li>
+                                                                    <i class="wb-chevron-right-mini visible-lg visible-md" aria-hidden="true"></i>
+                                                                    <a href="/<%- universal_supplier_gateway_url %>/hotel/current">
+                                                                        Overview
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="wb-chevron-right-mini visible-lg visible-md" aria-hidden="true"></i>
+                                                                    <a href="/<%- universal_supplier_gateway_url %>/hotel/current/search">
+                                                                        Search
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="wb-chevron-right-mini visible-lg visible-md" aria-hidden="true"></i>
+                                                                    <a href="/<%- universal_supplier_gateway_url %>/hotel/current/room-rates">
+                                                                        Room Rates
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="wb-chevron-right-mini visible-lg visible-md" aria-hidden="true"></i>
+                                                                    <a href="/<%- universal_supplier_gateway_url %>/hotel/current/rate-rules">
+                                                                        Rate Rules
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="wb-chevron-right-mini visible-lg visible-md" aria-hidden="true"></i>
+                                                                    <a href="/<%- universal_supplier_gateway_url %>/hotel/current/book">
+                                                                        Book
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="wb-chevron-right-mini visible-lg visible-md" aria-hidden="true"></i>
+                                                                    <a href="/<%- universal_supplier_gateway_url %>/hotel/current/cancel">
+                                                                        Cancel
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <h5>Car</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="navbar-avatar dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"
+                           data-animation="scale-up" role="button">
+                            <span class="avatar">
+                                <img src="/css/images/user.png" alt="...">
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation">
+                                <a href="javascript:void(0)" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Login</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/help" title="Help &and Support">
+                            <i class="icon fa-question-circle" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- End Navbar Toolbar Right -->
+            </div>
+            <!-- End Navbar Collapse -->
+            <!-- Site Navbar Seach -->
+            <div class="collapse navbar-search-overlap" id="site-navbar-search">
+                <form role="search">
+                    <div class="form-group">
+                        <div class="input-search">
+                            <i class="input-search-icon wb-search" aria-hidden="true"></i>
+                            <input type="text" class="form-control" name="site-search" placeholder="Search...">
+                            <button type="button" class="input-search-close icon wb-close" data-target="#site-navbar-search"
+                                    data-toggle="collapse" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- End Site Navbar Seach -->
+        </div>
+    </nav>
+    <div class="site-menubar site-menubar-light visible-xs">
+        <div class="site-menubar-body">
+            <ul class="site-menu">
+                <li class="site-menu-category"><%- booking_engine %></li>
+                <li class="site-menu-item">
+                    <a class="animsition-link" href="/<%- booking_engine_url %>">
+                        <i class="site-menu-icon fa-home"></i>
+                        <span class="site-menu-title">Home</span>
+                    </a>
+                </li>
+                <li class="dropdown site-menu-item has-sub">
+                    <a class="dropdown-toggle" href="javascript:void(0)" data-dropdown-toggle="false">
+                        <i class="site-menu-icon fa-plane" aria-hidden="true"></i>
+                        <span class="site-menu-title">Flight</span>
+                        <span class="site-menu-arrow"></span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="site-menu-scroll-wrap is-section">
+                            <div>
+                                <div>
+                                    <!--<ul class="site-menu-sub site-menu-section-list">
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="/<%- booking_engine_url %>/hotel/">
+                                                <span class="site-menu-title">Overview</span>
+                                            </a>
+                                        </li>
+                                    </ul>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown site-menu-item has-sub">
+                    <a class="dropdown-toggle" href="javascript:void(0)" data-dropdown-toggle="false">
+                        <i class="site-menu-icon fa-hotel" aria-hidden="true"></i>
+                        <span class="site-menu-title">Hotel</span>
+                        <span class="site-menu-arrow"></span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="site-menu-scroll-wrap is-section">
+                            <div>
+                                <div>
+                                    <ul class="site-menu-sub site-menu-section-list">
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="/<%- booking_engine_url %>/hotel/current/">
+                                                <span class="site-menu-title">Overview</span>
+                                            </a>
+                                        </li>
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="/<%- booking_engine_url %>/hotel/current/search">
+                                                <span class="site-menu-title">Search</span>
+                                            </a>
+                                        </li>
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="/<%- booking_engine_url %>/hotel/current/room-list">
+                                                <span class="site-menu-title">Room List</span>
+                                            </a>
+                                        </li>
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="/<%- booking_engine_url %>/hotel/current/pricing">
+                                                <span class="site-menu-title">Pricing</span>
+                                            </a>
+                                        </li>
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="/<%- booking_engine_url %>/hotel/current/book">
+                                                <span class="site-menu-title">Book</span>
+                                            </a>
+                                        </li>
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="/<%- booking_engine_url %>/hotel/current/cancel">
+                                                <span class="site-menu-title">Cancel</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown site-menu-item has-sub">
+                    <a class="dropdown-toggle" href="javascript:void(0)" data-dropdown-toggle="false">
+                        <i class="site-menu-icon fa-car" aria-hidden="true"></i>
+                        <span class="site-menu-title">Car</span>
+                        <span class="site-menu-arrow"></span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="site-menu-scroll-wrap is-section">
+                            <div>
+                                <div>
+                                    <!--<ul class="site-menu-sub site-menu-section-list">
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="/<%- booking_engine_url %>/hotel/">
+                                                <span class="site-menu-title">Overview</span>
+                                            </a>
+                                        </li>
+                                    </ul>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="site-menu-category"><%- universal_supplier_gateway %></li>
+                <li class="site-menu-item">
+                    <a class="animsition-link" href="/<%- universal_supplier_gateway_url %>">
+                        <i class="site-menu-icon fa-home"></i>
+                        <span class="site-menu-title">Home</span>
+                    </a>
+                </li>
+                <li class="dropdown site-menu-item has-sub">
+                    <a class="dropdown-toggle" href="javascript:void(0)" data-dropdown-toggle="false">
+                        <i class="site-menu-icon fa-plane" aria-hidden="true"></i>
+                        <span class="site-menu-title">Flight</span>
+                        <span class="site-menu-arrow"></span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="site-menu-scroll-wrap is-section">
+                            <div>
+                                <div>
+                                    <!--<ul class="site-menu-sub site-menu-section-list">
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="/<%- booking_engine_url %>/hotel/">
+                                                <span class="site-menu-title">Overview</span>
+                                            </a>
+                                        </li>
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="./search">
+                                                <span class="site-menu-title">Search</span>
+                                            </a>
+                                        </li>
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="./room-list">
+                                                <span class="site-menu-title">Room List</span>
+                                            </a>
+                                        </li>
+                                    </ul>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown site-menu-item has-sub">
+                    <a class="dropdown-toggle" href="javascript:void(0)" data-dropdown-toggle="false">
+                        <i class="site-menu-icon fa-hotel" aria-hidden="true"></i>
+                        <span class="site-menu-title">Hotel</span>
+                        <span class="site-menu-arrow"></span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="site-menu-scroll-wrap is-section">
+                            <div>
+                                <div>
+                                    <ul class="site-menu-sub site-menu-section-list">
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="/<%- universal_supplier_gateway_url %>/hotel/current">
+                                                <span class="site-menu-title">Overview</span>
+                                            </a>
+                                        </li>
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="/<%- universal_supplier_gateway_url %>/hotel/current/search">
+                                                <span class="site-menu-title">Search</span>
+                                            </a>
+                                        </li>
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="/<%- universal_supplier_gateway_url %>/hotel/current/room-rates">
+                                                <span class="site-menu-title">Room Rates</span>
+                                            </a>
+                                        </li>
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="/<%- universal_supplier_gateway_url %>/hotel/current/rate-rules">
+                                                <span class="site-menu-title">Rate Rules</span>
+                                            </a>
+                                        </li>
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="/<%- universal_supplier_gateway_url %>/hotel/current/book">
+                                                <span class="site-menu-title">Book</span>
+                                            </a>
+                                        </li>
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="/<%- universal_supplier_gateway_url %>/hotel/current/cancel">
+                                                <span class="site-menu-title">Cancel</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown site-menu-item has-sub">
+                    <a class="dropdown-toggle" href="javascript:void(0)" data-dropdown-toggle="false">
+                        <i class="site-menu-icon fa-car" aria-hidden="true"></i>
+                        <span class="site-menu-title">Car</span>
+                        <span class="site-menu-arrow"></span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="site-menu-scroll-wrap is-section">
+                            <div>
+                                <div>
+                                    <!--<ul class="site-menu-sub site-menu-section-list">
+                                        <li class="site-menu-item">
+                                            <a class="animsition-link" href="/<%- booking_engine_url %>/hotel/">
+                                                <span class="site-menu-title">Overview</span>
+                                            </a>
+                                        </li>
+                                    </ul>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

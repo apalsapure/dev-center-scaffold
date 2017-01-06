@@ -1,0 +1,193 @@
+{
+  "globals": {
+    "title": "PUT PROPER TITLE",
+    "description": "INCLUDE PROPER DESCRIPTION",
+    "keywords": "INCLUDE KEYWORDS",
+    "contact": "oskiteam@tavisca.com",
+    "booking_engine": "Booking Engine",
+    "universal_supplier_gateway": "Universal Supplier Gateway",
+    "booking_engine_url": "booking-engine",
+    "universal_supplier_gateway_url": "universal-supplier-gateway",
+    "redirect_url": "./overview",
+    "be_default_env": "dev",
+    "be_environments": [
+      {
+        "baseUrl": "http://localhost:8080",
+        "type": "local",
+        "name": "Local",
+        "cssClass": "btn-info"
+      },
+      {
+        "baseUrl": "http://dev-engine.oski.tavisca.com/hotelengine",
+        "type": "dev",
+        "name": "Development",
+        "cssClass": "btn-success"
+      },
+      {
+        "baseUrl": "https://public-be.stage.oski.io",
+        "type": "stage",
+        "name": "Stage",
+        "cssClass": "btn-warning"
+      },
+      {
+        "baseUrl": "https://public-be.oski.io",
+        "type": "production",
+        "name": "Production",
+        "cssClass": "btn-danger"
+      }
+    ],
+    "be_hotel_version": "1.0",
+    "be_hotel_versions": [
+      "1.0"
+    ],
+    "usg_default_env": "dev",
+    "usg_environments": [
+      {
+        "baseUrl": "http://localhost:8080",
+        "type": "local",
+        "name": "Local",
+        "cssClass": "btn-info"
+      },
+      {
+        "baseUrl": "http://dev-usg.oski.tavisca.com/usg/hotels/v1.0",
+        "type": "dev",
+        "name": "Development",
+        "cssClass": "btn-success"
+      },
+      {
+        "baseUrl": "https://private-usg.stage.oski.io",
+        "type": "stage",
+        "name": "Stage",
+        "cssClass": "btn-warning"
+      },
+      {
+        "baseUrl": "https://private-usg.oski.io",
+        "type": "production",
+        "name": "Production",
+        "cssClass": "btn-danger"
+      }
+    ],
+    "usg_hotel_version": "1.0",
+    "usg_hotel_versions": [
+      "1.0"
+    ],
+    "brand": "Oski",
+    "support_email": "oskiteam@tavisca.com",
+    "support_link": "http://oski.freshdesk.com",
+    "status_link": "http://status.oski.io",
+    "logo_uri": "/css/images/logo.png",
+    "be_car_version": "1.0",
+    "be_car_versions": [
+      "1.0"
+    ],
+    "data_generics": [
+      {
+        "baseUrl": "https://private-data.stage.oski.io",
+        "type": "stage",
+        "name": "Stage",
+        "cssClass": "btn-warning"
+      }
+    ],
+    "data_generics_version": "1.0",
+    "data_generics_versions": [
+      "1.0"
+    ],
+    "data_tenancy_setup": [
+      {
+        "baseUrl": "http://dev-data.oski.tavisca.com/tenancy",
+        "type": "dev",
+        "name": "Development",
+        "cssClass": "btn-success"
+      },
+      {
+        "baseUrl": "https://private-tenant.stage.oski.io",
+        "type": "stage",
+        "name": "Stage",
+        "cssClass": "btn-warning"
+      }
+    ],
+    "data_tenancy_configuration": [
+      {
+        "baseUrl": "http://dev-data.oski.tavisca.com/configurationservice",
+        "type": "dev",
+        "name": "Development",
+        "cssClass": "btn-success"
+      },
+      {
+        "baseUrl": "https://private-configuration.stage.oski.io",
+        "type": "stage",
+        "name": "Stage",
+        "cssClass": "btn-warning"
+      }
+    ],
+    "data_tenancy_configuration_version": "1.0",
+    "data_tenancy_configuration_versions": [
+      "1.0"
+    ],
+    "data_trips": [
+      {
+        "baseUrl": "https://private-data.stage.oski.io",
+        "type": "stage",
+        "name": "Stage",
+        "cssClass": "btn-warning"
+      }
+    ],
+    "data_trips_version": "1.0",
+    "data_trips_versions": [
+      "1.0"
+    ],
+    "data_tenancy_setup_version": "1.0",
+    "content_default_env": "stage",
+    "content_environments": [
+      {
+        "baseUrl": "https://public-contentservice.stage.oski.io",
+        "type": "stage",
+        "name": "Stage",
+        "cssClass": "btn-warning"
+      }
+    ],
+    "content_version": "1.0",
+    "content_versions": [
+      "1.0"
+    ],
+    "data_api": [
+      {
+        "baseUrl": "http://dev-data.oski.tavisca.com/data",
+        "type": "dev",
+        "name": "Development",
+        "cssClass": "btn-success"
+      },
+      {
+        "baseUrl": "https://private-data.stage.oski.io",
+        "type": "stage",
+        "name": "Stage",
+        "cssClass": "btn-warning"
+      }
+    ],
+    "data_api_version": "1.0",
+    "data_api_versions": [
+      "1.0"
+    ],
+    "data_service_bus": [
+      {
+        "baseUrl": "http://dev-data.oski.tavisca.com/servicebus",
+        "type": "dev",
+        "name": "Development",
+        "cssClass": "btn-success"
+      },
+      {
+        "baseUrl": "https://private-servicebus.stage.oski.io",
+        "type": "stage",
+        "name": "Stage",
+        "cssClass": "btn-warning"
+      }
+    ],
+    "data_service_bus_version": "1.0",
+    "data_service_bus_versions": [
+      "1.0"
+    ],
+    "data_tenancy_setup_versions": [
+      "1.0"
+    ]
+  }
+}

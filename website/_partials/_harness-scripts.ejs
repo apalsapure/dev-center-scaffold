@@ -1,0 +1,445 @@
+<script type="text/javascript">
+    window._poc = {
+        models: {},
+        views: {},
+        utils: {}
+    }
+</script>
+
+<% if(environment == "prod") { %>
+<script src="/bundle/js/code-bundle.min.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/oski-cdn/devcenter/monaco/vs/loader.js" async onload="require.config({ paths: { 'vs': 'https://s3.amazonaws.com/oski-cdn/devcenter/monaco/vs' } });"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/oski-cdn/devcenter/monaco/vs/editor/editor.main.js" async></script>
+<% } else { %>
+<script src="/js/infra/underscore-min.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/infra/backbone-min.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/infra/handlebars-1.3.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/infra/marked.min.js?v=__RevisionNoGoesHere__"></script>
+<script src="/js/infra/moment.min.js?v=__RevisionNoGoesHere__"></script>
+
+<script src="/js/code/model/commonModels.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/code/views/consoleView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/code/views/editor/paramEditorView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/code/views/editor/jsonEditorView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/code/views/headersView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/code/views/request/requestView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/code/views/response/responseView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/code/views/detailsPaneView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/code/views/sampleView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/code/views/harnessView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script src="/js/code/views/switcherView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+<script type="text/javascript" src="/js/infra/vs/loader.js" async onload="require.config({ paths: { 'vs': '/js/infra/vs' } });"></script>
+<script type="text/javascript" src="/js/infra/vs/editor/editor.main.js" async></script>
+<% } %>
+
+<script id="tmplConsole" type="text/x-handlebars-template">
+    <div class="row ptl">
+        <div class="col-sm-9">
+            <h4 class="mtm mbs font-size-20">{{title}}</h4>
+        </div>
+        <div class="col-sm-3 text-right try-out-button">
+            <a href="javascript:void(0)" class="switch-button btn btn-primary btn-outline font-16">Switch to Sample</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="borders mtm">
+                <div class="padding-left-15 padding-right-10">
+                    <h4 class="font-17 mbs">Request</h4>
+                    <span class="help-block site-font font-13 mtn">This is an editable sample request. Click each field to view its description and the required/optional field indicator. Click <a href="#">here</a> to know more about how to use the code editor. </span>
+                </div>
+            </div>
+            <div class="request-container"></div>
+            <div class="response-header borders no-border-top no-border-bottom ptm pbm">
+                <div class="padding-left-15 padding-right-10">
+                    <h4 class="font-17 mbs mtn">Response</h4>
+                    <span class="help-block site-font font-13 mtn mbn">This is the live response for the request that you submitted. Click each field to view its description. Click <a href="#">here</a> to know more about how to use the code editor.</span>
+                </div>
+            </div>
+            <div class="response-container"></div>
+        </div>
+    </div>
+</script>
+
+<script id="tmplSampleView" type="text/x-handlebars-template">
+    <div class="row ptl">
+        <div class="col-sm-9">
+            <h4 class="mtm mbs font-size-20">{{title}}</h4>
+        </div>
+        <div class="col-sm-3 text-right try-out-button">
+            <a href="javascript:void(0)" class="switch-button btn btn-primary btn-outline font-16">Try It Now</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="borders mtm">
+                <div class="padding-left-15 padding-right-10">
+                    <h4 class="font-17 mbs">Sample Request</h4>
+                    <span class="help-block site-font font-13 mtn">This is a non-editable sample request. To edit the request, click <strong>Try It Now</strong>. Click <a href="#">here</a> to know more about how to use the code editor.</span>
+                </div>
+            </div>
+            <div class="request-container"></div>
+            <div class="borders no-border-top no-border-bottom ptm pbm">
+                <div class="padding-left-15 padding-right-10">
+                    <h4 class="font-17 mbs mtn">Sample Response</h4>
+                    <span class="help-block site-font font-13 mtn mbn">This is a sample response. Click each field to view its description. Click <a href="#">here</a> to know more about how to use the code editor.</span>
+                </div>
+            </div>
+            <div class="response-container"></div>
+        </div>
+    </div>
+</script>
+
+<script id="tmplRequest" type="text/x-handlebars-template">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="border-container">
+                <div class="row">
+                    {{#if readOnly}}
+                    {{else}}
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon no-border-top" style="border-left: none;" id="basic-addon3">{{method}}</span>
+                            <span class="input-group-addon no-border-top visible-lg request-url text-left full-width"></span>
+                            <input type="text" class="visible-md no-border-top visible-sm visible-xs form-control text-request-url" value="URL" data-placement="top" data-trigger="click" data-toggle="popover" data-original-title="Resource URL" tabindex="0" title="" />
+                            <div class="input-group-btn">
+                                <button class="btn btn-primary visible-sm visible-md visible-lg" data-loading-text="Calling Resource"><i class="fa fa-send mrs"></i>Call Resource</button>
+                                <button class="btn btn-primary visible-xs" data-loading-text="<i class='fa fa-send mrs'>"><i class="fa fa-send mrs"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    {{/if}}
+                    <div class="col-sm-12">
+                        <div id="invalidRequest" class="help-block plm mls error font-13 pts" style="display: none; margin-bottom: -3px; color: #cc0303;">Invalid headers</div>
+                    </div>
+                    <div class="col-sm-12">
+                        <ul class="nav nav-tabs nav-small padding-left-10 margin-top-5">
+                            <li role="presentation"><a href="#request-headers{{uId}}" aria-controls="request-headers" role="tab" data-toggle="tab"><i class="icon wb-align-justify"></i>Headers (<span id="spanHeaderCount">...</span>)</a></li>
+                            {{#if showBody}}
+                            <li role="presentation"><a href="#request-body{{uId}}" aria-controls="request-body" role="tab" data-toggle="tab"><i class="icon wb-code"></i>Body</a></li>
+                            {{/if}}
+                            {{#if showParams}}
+                            <li role="presentation"><a href="#request-params{{uId}}" aria-controls="request-body" role="tab" data-toggle="tab"><i class="icon wb-link-intact"></i>Parameters</a></li>
+                            {{/if}}
+                        </ul>
+                        <div class="tab-content pull-left full-width site-font font-body-color">
+                            <div role="tabpanel" class="tab-pane editor-container request-headers" id="request-headers{{uId}}"></div>
+                            {{#if showBody}}
+                            <div role="tabpanel" class="tab-pane request-body" id="request-body{{uId}}" style="width:100%; float:left;"></div>
+                            {{/if}}
+                            {{#if showParams}}
+                            <div role="tabpanel" class="tab-pane request-params" id="request-params{{uId}}" style="width:100%; float:left;"></div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="tmplLoader" type="text/template">
+    <div class="row">
+        <div class="col-sm-12 position-relative" style="height: 400px;">
+            <div class="response-loader">
+                <div class="loader vertical-align-middle loader-bounce" data-type="default"></div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="tmplResponse" type="text/x-handlebars-template">
+    <div class="pull-left pbl" style="width: 100%; ">
+        <div class="row">
+            <div class="col-sm-12 hide position-relative" style="height: 400px;">
+                <div class="response-loader">
+                    <div class="loader vertical-align-middle loader-bounce" data-type="default"></div>
+                </div>
+            </div>
+            <div class="response col-sm-12 hide">
+                <div class="border-container" style="border-top-width: 1px;">
+                    <div class="row">
+                        <div class="col-sm-12 position-relative">
+                            <ul class="nav nav-tabs nav-small" style="margin-top: 5px; margin-left: 10px; margin-bottom: -1px;">
+                                <li role="presentation"><a href="#response-headers{{uId}}" aria-controls="response-headers" role="tab" data-toggle="tab"><i class="icon wb-align-justify"></i>Headers (<span id="spanHeaderCount">...</span>)</a></li>
+                                <li role="presentation" class="active"><a href="#response-body{{uId}}" aria-controls="response-body" role="tab" data-toggle="tab"><i class="icon wb-code"></i>Body</a></li>
+                            </ul>
+                            <div class="status-view position-absolute font-14 text-right visible-lg visible-md" style="right: 20px; top: 3px; width: 250px;">
+                                <span>Status:</span>
+                                <a href="javascript:void(0)" class="mlmn response-status btn btn-link" data-placement="left" data-toggle="popover" title="HTTP Status Code">...</a>
+                                <span>Time:</span>
+                                <a href="javascript:void(0)" class="mlmn response-time btn btn-link" data-placement="left" data-toggle="popover" title="Response Time (milli seconds)" data-content="Time taken by the browser to get the response from server.">...</a>
+                            </div>
+                            <div class="tab-content pull-left full-width site-font font-body-color">
+                                <div role="tabpanel" class="tab-pane editor-container response-headers" id="response-headers{{uId}}" style="width:100%; float:left;"></div>
+                                <div role="tabpanel" class="tab-pane active response-body" id="response-body{{uId}}" style="width:100%; float:left;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="tmplHeaders" type="text/x-handlebars-template">
+    <div class="col-md-8 col-lg-8 pln prn position-relative full-height border-right">
+        <div class="header-table-container full-width">
+            <div data-role="container">
+                <div data-role="content">
+                    <table class="table table-bottom-border full-width"></table>
+                </div>
+            </div>
+        </div>
+        {{#if enabled}}
+        <a id="addHeader" href="javascript:void(0)" class="btn btn-link position-absolute" style="bottom: 0;"><i class="fa fa-plus"></i> Add Header</a>
+        {{/if}}
+    </div>
+    <div class="col-md-4 col-lg-4 help-block-container visible-lg visible-md">
+    </div>
+</script>
+
+<script id="tmplHeaderRow" type="text/x-handlebars-template">
+    <tr id="{{header.cid}}">
+        <td style="padding: 2px 0;"><input type="text" value="{{header.attributes.key}}" data-target="{{header.cid}}" class="form-control key input-bottom no-radius" aria-describedby="basic-addon3" placeholder="key" /></td>
+        <td {{#if enabled}}
+            {{#if header.attributes.isRequired}}
+            {{else}}
+            colspan="2"
+            {{/if}}
+            {{/if}}
+            style="padding: 2px 0;">
+            <input type="text" value="{{header.attributes.value}}" data-target="{{header.cid}}" class="form-control value input-bottom no-radius" aria-describedby="basic-addon3" placeholder="value" />
+        </td>
+        {{#if enabled}}
+        {{#if header.attributes.isRequired}}
+        {{else}}
+        <td align="left" style="padding: 2px 0; width: 50px;"><button class="btn btn-default btn-remove" data-target="{{header.cid}}"><i class="fa fa-remove"></i></button></td>
+        {{/if}}
+        {{/if}}
+    </tr>
+</script>
+
+<script id="tmplFieldRow" type="text/x-handlebars-template">
+    <tr id="{{field.cid}}">
+        <td style="padding: 2px 0;"><input type="text" value="{{field.attributes.key}}" data-target="{{field.cid}}" class="form-control key input-bottom no-radius" aria-describedby="basic-addon3" placeholder="key" /></td>
+        <td {{#if field.attributes.editKey}} {{else}} colspan="2" {{/if}} style="padding: 2px 0;"><input type="text" value="{{field.attributes.value}}" data-target="{{field.cid}}" class="form-control value input-bottom no-radius" aria-describedby="basic-addon3" placeholder="value" /></td>
+        {{#if field.attributes.editKey}}
+        <td align="left" style="padding: 2px 0; width: 50px;"><button class="btn btn-default btn-remove" data-target="{{field.cid}}"><i class="fa fa-remove"></i></button></td>
+        {{/if}}
+    </tr>
+</script>
+
+<script id="tmplParamEditor" type="text/x-handlebars-template">
+    <div class="pretty-content">
+        <div class="col-md-8 col-lg-8 pln prn position-relative border-right">
+            <div id="editor-container{{cid}}" class="editor-container">
+                <div data-role="container">
+                    <div data-role="content">
+                        <table class="table table-bottom-border full-width"></table>
+                    </div>
+                </div>
+            </div>
+            {{#if enabled}}
+            <a id="addProperty" href="javascript:void(0)" class="btn btn-link position-absolute" style="bottom: 0;"><i class="fa fa-plus"></i> Add Parameter</a>
+            {{/if}}
+        </div>
+        <div class="col-md-4 col-lg-4 help-block-container">
+        </div>
+    </div>
+</script>
+
+<script id="tmplJsonEditor" type="text/x-handlebars-template">
+    <div class="pretty-content">
+        <div class="col-md-8 col-lg-8 pln prn position-relative">
+            <div id="editor-container{{cid}}" class="editor-container"></div>
+            <div id="commandBar" class="position-absolute">
+                <div class="btn-group btn-group-vertical btn-group-sm" role="group" aria-label="...">
+                    <button title="Switch background color" type="button" class="btn btn-default btn-outline btn-dark btn-color"><i class="fa fa-adjust font-14"></i></button>
+                    {{#if readOnly}}
+                    {{else}}
+                    <button title="Format JSON" type="button" class="btn btn-default btn-outline btn-dark btn-format"><i class="fa fa-indent font-14"></i></button>
+                    {{/if}}
+                    {{#if enableFullscreen}}
+                    <button title="Toggle Fullscreen" type="button" class="btn btn-default btn-outline btn-dark btn-full"><i class="fa fa-arrows-alt font-14"></i></button>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-4 help-block-container">
+        </div>
+    </div>
+</script>
+
+<script id="tmplSampleObject" type="text/x-handlebars-template">
+    <div class="pbs"><strong>Example:</strong></div>
+    <div class="pbs"><label class="label label-default font-14">{{item.value}}</label></div>
+</script>
+
+<script id="tmplSampleEnumArray" type="text/x-handlebars-template">
+    <div class="pbs"><strong>Enum Values:</strong></div>
+    <table class="table table-striped table-bordered font-15 light-font">
+        <thead>
+            <tr>
+                <th>
+                    Option
+                </th>
+                <th>
+                    Type
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each items}}
+            <tr>
+                <td><label class="label label-default font-14">{{this.value}}</label></td>
+                <td>{{this.type}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+</script>
+
+<script id="tmplDetailsPane" type="text/x-handlebars-template">
+    {{#if item}}
+    <div id="details">
+        <div class="position-relative"></div>
+        <h4 class="item-title">{{item.title}}</h4>
+        {{#if item.isRequired}}
+        <div id="isRequired" class="position-absolute" style="right: 10px; top: 9px;"><label class="label font-13 label-default">required</label></div>
+        {{/if}}
+        <i id="dataType" class="font-size-14">{{item.type}}</i>{{#item.itemType}}<i class="margin-left-3 grey-400 font-13">({{this}})</i>{{/item.itemType}}
+        <div class="editor-help-text-container mts position-relative">
+            <div data-role="container">
+                <div data-role="content">
+                    <div class="editor-help-text">
+                        {{{item.content}}}
+                        {{#if item.sampleValue}}
+                        <div class="ptm">
+                            {{{item.sampleValueHtml}}}
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div id="noDetails" class="ptm">
+        <span class="help-block mbn font-14 light-font visible-lg visible-md">{{{help.helpText}}}</span>
+        {{#if readOnly}}
+        {{else}}
+        <span class="help-block font-14 light-font">{{{help.infoText}}}</span>
+        {{/if}}
+    </div>
+    {{/if}}
+</script>
+
+<script id="tmplSwitch" type="text/x-handlebars-template">
+    <div class="switcher">
+        <span class="handle">
+            <i class="fa fa-cog"></i>
+        </span>
+        <button type="button" class="btn btn-link position-absolute visible-xs" style="right: -10px; top: -2px; z-index: 1000;"><i class="icon wb-close"></i></button>
+        <div class="prs plm ptm">
+            <ul class="man pbl nav nav-tabs nav-justified nav-tabs-line" data-plugin="nav-tabs" role="tablist">
+                <li class="active" role="presentation">
+                    <a data-toggle="tab" href="#sidebar-environment" role="tab" title="Switch Environment">
+                        <i class="icon wb-random" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a data-toggle="tab" href="#sidebar-body" role="tab" title="Configure Body Variables">
+                        <i class="icon wb-code" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a data-toggle="tab" href="#sidebar-headers" role="tab" title="Configure Request Headers">
+                        <i class="icon wb-align-justify" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <div id="tab-content-scroll">
+                <div>
+                    <div>
+                        <div class="tab-content">
+                            <div id="sidebar-environment" class="tab-pane fade active in">
+                                <h3 class="mtn mbn">Switch Environment</h3>
+                                <span class="help-block mtn mbs">Select an environment from following options</span>
+                                <form>
+                                    <div class="form-group position-relative">
+                                        <button type="button" class="btn action-button form-control dropdown-toggle" data-toggle="dropdown">Environment <span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            {{#each envs}}
+                                            <li><a href="javascript:void(0)" class="{{cssClass}} {{type}}" data-target="{{type}}">{{name}}</a></li>
+                                            {{/each}}
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="sidebar-body" class="tab-pane">
+                                <h3 class="mtn mbn">Configure Body Variables</h3>
+                                <span class="help-block mts mbs font-13">Once done with the changes, click apply</span>
+                                <form class="form-configuration">
+                                    {{#if bodyItems}}
+
+                                    {{#each bodyItems}}
+                                    <div class="form-group">
+                                        <label class="control-label">{{this.attributes.label}}</label>
+                                        <input type="text" data-target="{{this.attributes.key}}" value="{{this.attributes.value}}" class="form-control" autocomplete="off" autocorrect="off" spellcheck="false" />
+                                    </div>
+                                    {{/each}}
+                                    <div class="form-group mbm">
+                                        <button type="button" class="btn apply-button">Apply</button>
+                                    </div>
+                                    {{else}}
+                                    <span class="help-block pts">
+                                        <i class="icon wb-info-circle"></i><i>No placeholders defined</i>
+                                    </span>
+                                    {{/if}}
+                                </form>
+                            </div>
+                            <div id="sidebar-headers" class="tab-pane">
+                                <h3 class="mtn mbn">Configure HTTP Headers</h3>
+                                <span class="help-block mts mbs font-13">Once done with the changes, click apply</span>
+                                <form class="form-configuration">
+                                    {{#if headerItems}}
+
+                                    {{#each headerItems}}
+                                    <div class="form-group">
+                                        <label class="control-label">{{this.attributes.label}}</label>
+                                        <input type="text" data-target="{{this.attributes.key}}" value="{{this.attributes.value}}" class="form-control" autocomplete="off">
+                                    </div>
+                                    {{/each}}
+                                    <div class="form-group mbm">
+                                        <button type="button" class="btn apply-button">Apply</button>
+                                    </div>
+                                    {{else}}
+                                    <span class="help-block pts">
+                                        <i class="icon wb-info-circle"></i><i>No headers defined</i>
+                                    </span>
+                                    {{/if}}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script>
+    hljs.initHighlightingOnLoad();
+    Breakpoints();
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var url = 'index.json';
+        var view = new window._poc.views.HarnessView().render(url);
+    });
+
+</script>

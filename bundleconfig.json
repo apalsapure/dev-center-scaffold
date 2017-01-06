@@ -1,0 +1,61 @@
+[
+  {
+    "outputFileName": "website/bundle/js/code-bundle.js",
+    "inputFiles": [
+      "website/js/infra/underscore-min.js",
+      "website/js/infra/backbone-min.js",
+      "website/js/infra/handlebars-1.3.js",
+      "website/js/infra/marked.min.js",
+      "website/js/infra/moment.min.js",
+      "website/js/code/model/commonModels.js",
+      "website/js/code/views/request/requestView.js",
+      "website/js/code/views/response/responseView.js",
+      "website/js/code/views/consoleView.js",
+      "website/js/code/views/detailsPaneView.js",
+      "website/js/code/views/sampleView.js",
+      "website/js/code/views/editor/jsonEditorView.js",
+      "website/js/code/views/editor/paramEditorView.js",
+      "website/js/code/views/headersView.js",
+      "website/js/code/views/harnessView.js",
+      "website/js/code/views/switcherView.js",
+      "website/js/side-nav-bar.js"
+    ]
+  },
+  {
+    "outputFileName": "website/bundle/css/style.css",
+    "inputFiles": [
+      "website/css/bootstrap/css/bootstrap.min.css",
+      "website/css/bootstrap/css/bootstrap-extend.min.css",
+      "website/css/site.min.css",
+      "website/bundle/fonts/web-icons/web-icons.min.css",
+      "website/bundle/fonts/font-awesome/font-awesome.css",
+      "website/css/common.css",
+      "website/global/vendor/asscrollable/asScrollable.css"
+    ]
+  },
+  {
+    "outputFileName": "website/bundle/js/infra-bundle.js",
+    "inputFiles": [
+      "website/js/infra/jquery.js",
+      "website/js/infra/md5.js",
+      "website/js/infra/bootstrap.js",
+      "website/js/infra/highlight.js",
+      "website/js/infra/js.cookie.js",
+      "website/js/store.js",
+
+      "website/global/vendor/screenfull/screenfull.js",
+      "website/global/vendor/breakpoints/breakpoints.js",
+      "website/global/vendor/asbreadcrumbs/jquery-asBreadcrumbs.min.js",
+      "website/global/vendor/asscrollable/jquery.asScrollable.all.min.js",
+
+      "website/global/js/core.js",
+      "website/js/site.js",
+      "website/js/menu.js",
+      "website/js/menubar.js",
+
+      "website/global/js/components/asscrollable.js",
+      
+      "website/js/util.js"
+    ]
+  }
+]

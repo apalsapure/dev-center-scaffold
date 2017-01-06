@@ -1,0 +1,12 @@
+{
+  "index": {
+    "title": "NO DATA CONFIG DEFINED",
+    "description": "",
+    "layout": "../../../../_layouts/be/hotel/_layout.ejs",
+    "keywords": "",
+    "breadcrumb_page": "DEFAULT",
+    "actions": [],
+		"version": "NA",
+		"path": "DEFAULT"
+  }
+}

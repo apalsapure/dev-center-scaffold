@@ -1,0 +1,54 @@
+# Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
+node_modules
+configurations/build
+index.json
+index.md
+*.combined.js
+*.combined.css
+
+configurations/build
+
+# Ignore all auto generated folders
+website/booking-engine/flight
+website/booking-engine/hotel
+website/booking-engine/car
+website/content
+website/data-api/generics
+website/data-api/trips
+website/data-api/tenancy
+website/data-api/tenant-setup
+website/universal-supplier-gateway/flight
+website/universal-supplier-gateway/hotel
+website/universal-supplier-gateway/car
+
+#Symbols
+
+# Mono specific files
+# ---------------------
+# user preferences for mono
+*.userprefs
+
+# Parser Information Database file - just an optimization by mono
+*.pidb
+
+# Visual Studio specific and Resharper
+_resharper*
+*.resharper
+*.suo
+*.user
+.*.swp
+*.scc 
+*.vssscc 
+*.vspscc 
+*.o 
+*.lo 
+*.la 
+*.al 
+*.libs 
+*.so 
+*.so.[0-9]*
+
+#Mac specific
+.DS_Store
+*.DS_Store
+

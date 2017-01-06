@@ -1,0 +1,8 @@
+{
+  "index": {
+      "title": "Help and Support - Dev Center",
+      "description": "SDKs, samples, downloads, design inspiration, and other resources you need to build your iOS, Android, Windows or Javascript app.",
+      "keywords": "sdk, sdks, ios, android, windows, .net, samples, downloads",
+      "layout": "../_layouts/_layout-banner"
+   }
+}
